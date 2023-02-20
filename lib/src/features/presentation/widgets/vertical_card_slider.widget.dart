@@ -42,7 +42,7 @@ class VerticalCard extends StatelessWidget {
             child: FadeInImage(
               placeholder: AssetImage('assets/images/no-image.png'),
               image: NetworkImage(
-                  'https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'),
+                  'https://images.unsplash.com/photo-1505253668822-42074d58a7c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8'),
               height: 100,
               width: 80,
               fit: BoxFit.cover,

@@ -1,5 +1,6 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/tabs/tabs.dart';
+import 'package:delivery_app/src/features/presentation/widgets/alert_dialog.widget.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -12,6 +13,12 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 5), (() => _pedirLocation(context)));
+    super.initState();
+  }
+
   //lista de tabs
   final List<Widget> _widgetOptions = [
     const ExploreTab(),
@@ -53,4 +60,13 @@ class _HomeState extends State<Home> {
       ],
     );
   }
+}
+
+_pedirLocation(BuildContext context) {
+  showAlertDialog(
+      context,
+      const AssetImage('assets/icons/location.png'),
+      'Permítenos acceder a tu ubicación para que puedas tener información de los restaurantes cercanos a ti y el estatus de tus envíos.',
+      'Habilitar',
+      () {});
 }
