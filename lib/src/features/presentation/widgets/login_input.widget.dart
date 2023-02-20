@@ -1,4 +1,4 @@
-import 'package:delivery_app/colors/colors.dart';
+import 'package:delivery_app/src/colors/colors.dart';
 import 'package:flutter/material.dart';
 
 class LoginInput extends StatelessWidget {

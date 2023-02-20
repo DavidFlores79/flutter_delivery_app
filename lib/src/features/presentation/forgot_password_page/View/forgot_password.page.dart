@@ -1,6 +1,6 @@
-import 'package:delivery_app/colors/colors.dart';
-import 'package:delivery_app/pages/pages.dart';
-import 'package:delivery_app/widgets/widgets.dart';
+import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/pages.dart';
+import 'package:delivery_app/src/features/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatelessWidget {
@@ -13,10 +13,10 @@ class ForgotPassword extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: white,
         leading: Builder(
           builder: (context) => const backButton(
-            color: Colors.black,
+            color: darkGrey,
           ),
         ),
       ),
@@ -37,7 +37,7 @@ class ForgotPassword extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 28,
-                      color: Color.fromRGBO(10, 31, 68, 1),
+                      color: darkGrey,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -62,9 +62,9 @@ class ForgotPassword extends StatelessWidget {
                     width: 350.0,
                     height: 45.0,
                     child: ElevatedButton(
-                      onPressed: () => _mostrarAlerta(context),
+                      onPressed: () => _showMeAlert(context),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.amber.shade800,
+                        backgroundColor: darkOrange,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30.0),
                         ),
@@ -85,7 +85,7 @@ class ForgotPassword extends StatelessWidget {
   }
 }
 
-void _mostrarAlerta(BuildContext context) {
+void _showMeAlert(BuildContext context) {
   showDialog(
     barrierDismissible: false,
     context: context,
@@ -126,7 +126,7 @@ void _mostrarAlerta(BuildContext context) {
                   onPressed: () =>
                       Navigator.pushReplacementNamed(context, Login.routeName),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.amber.shade800,
+                    backgroundColor: darkOrange,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
                     ),

@@ -1,4 +1,4 @@
-import 'package:delivery_app/pages/pages.dart';
+import 'package:delivery_app/src/features/presentation/pages.dart';
 import 'package:flutter/material.dart';
 
 final routes = <String, WidgetBuilder>{

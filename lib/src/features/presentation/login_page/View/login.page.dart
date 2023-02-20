@@ -1,7 +1,7 @@
 // import 'dart:ui';
-import 'package:delivery_app/colors/colors.dart';
-import 'package:delivery_app/pages/pages.dart';
-import 'package:delivery_app/widgets/widgets.dart';
+import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/pages.dart';
+import 'package:delivery_app/src/features/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -50,7 +50,7 @@ class Login extends StatelessWidget {
                           'Bienvenido',
                           style: TextStyle(
                               fontSize: 35,
-                              color: Color.fromRGBO(10, 31, 68, 1),
+                              color: darkGrey,
                               fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 10),
@@ -81,7 +81,7 @@ class Login extends StatelessWidget {
                             onPressed: () => Navigator.pushReplacementNamed(
                                 context, Home.routeName),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.amber.shade800,
+                              backgroundColor: darkOrange,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30.0),
                               ),

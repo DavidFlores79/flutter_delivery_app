@@ -1,5 +1,5 @@
-import 'package:delivery_app/colors/colors.dart';
-import 'package:delivery_app/pages/tabs/tabs.dart';
+import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/tabs/tabs.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
