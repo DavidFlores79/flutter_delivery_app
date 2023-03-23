@@ -1,4 +1,5 @@
 import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/pages.dart';
 import 'package:delivery_app/src/features/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -21,14 +22,14 @@ class _ExploreTabState extends State<ExploreTab> {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  const MainTitle(title: 'Descubre nuevos lugares'),
+                  MainTitle(title: 'Descubre nuevos lugares'),
                   const CardSlider(),
                   MainTitleWithButton(
                     textButton: 'Mostrar Todos',
                     title: 'Populares',
                     onPressed: () {},
                   ),
-                  VerticalSlider(),
+                  const VerticalSlider(),
                   MainTitleWithButton(
                     textButton: 'Mostrar Todos',
                     title: 'Colecciones',
@@ -57,26 +58,29 @@ class TopBar extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 15),
-          child: Container(
-            width: size.width * 0.78,
-            padding: const EdgeInsets.all(10.0),
-            decoration: const BoxDecoration(
-              color: lightGreyTransparent,
-              borderRadius: BorderRadius.all(
-                Radius.circular(30),
-              ),
-            ),
-            child: Row(
-              children: const [
-                Icon(
-                  Icons.search,
-                  color: grey,
+          child: GestureDetector(
+            onTap: () => Navigator.pushNamed(context, Search.routeName),
+            child: Container(
+              width: size.width * 0.78,
+              padding: const EdgeInsets.all(10.0),
+              decoration: const BoxDecoration(
+                color: lightGreyTransparent,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(30),
                 ),
-                Text(
-                  'Buscar',
-                  style: TextStyle(fontSize: 16, color: grey),
-                )
-              ],
+              ),
+              child: Row(
+                children: const [
+                  Icon(
+                    Icons.search,
+                    color: grey,
+                  ),
+                  Text(
+                    'Buscar',
+                    style: TextStyle(fontSize: 16, color: grey),
+                  )
+                ],
+              ),
             ),
           ),
         ),

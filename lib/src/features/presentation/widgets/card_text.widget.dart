@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 class CardText extends StatelessWidget {
   final String name;
   final String address;
-  final String ratings;
+  final String reviews;
   final bool isDeliver;
 
   const CardText({
     Key? key,
     required this.name,
     required this.address,
-    required this.ratings,
+    required this.reviews,
     required this.isDeliver,
   }) : super(key: key);
 
@@ -30,6 +30,9 @@ class CardText extends StatelessWidget {
                   fontSize: 16, fontWeight: FontWeight.bold, color: darkGrey),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(
+              height: 4,
             ),
             Text(
               address,
@@ -56,7 +59,7 @@ class CardText extends StatelessWidget {
                 ),
                 const SizedBox(width: 5),
                 Text(
-                  ratings,
+                  reviews,
                   style: const TextStyle(
                       fontSize: 13, fontWeight: FontWeight.normal, color: grey),
                 ),

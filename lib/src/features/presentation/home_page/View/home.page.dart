@@ -68,5 +68,5 @@ _pedirLocation(BuildContext context) {
       const AssetImage('assets/icons/location.png'),
       'Permítenos acceder a tu ubicación para que puedas tener información de los restaurantes cercanos a ti y el estatus de tus envíos.',
       'Habilitar',
-      () {});
+      () => Navigator.pop(context));
 }

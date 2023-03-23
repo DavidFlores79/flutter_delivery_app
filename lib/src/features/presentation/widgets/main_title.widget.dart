@@ -3,8 +3,12 @@ import 'package:flutter/material.dart';
 
 class MainTitle extends StatelessWidget {
   final String title;
+  double fontSize;
 
-  const MainTitle({required this.title});
+  MainTitle({
+    required this.title,
+    this.fontSize = 28,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,10 +17,10 @@ class MainTitle extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Text(
         title,
-        style: const TextStyle(
+        style: TextStyle(
           color: black,
           fontWeight: FontWeight.bold,
-          fontSize: 28,
+          fontSize: fontSize,
         ),
         maxLines: 2,
       ),

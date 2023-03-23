@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 final routes = <String, WidgetBuilder>{
   'welcome': (context) => Welcome(),
+  'search': (context) => const Search(),
   'login': (context) => Login(),
   'forgot-password': (context) => const ForgotPassword(),
   'register': (context) => const Register(),

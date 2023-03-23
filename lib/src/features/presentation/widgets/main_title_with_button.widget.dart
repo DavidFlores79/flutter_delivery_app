@@ -5,18 +5,27 @@ import 'package:flutter/material.dart';
 class MainTitleWithButton extends StatelessWidget {
   String title;
   String textButton;
+  double fontSize;
   final VoidCallback onPressed;
 
-  MainTitleWithButton(
-      {required this.title, required this.textButton, required this.onPressed});
+  MainTitleWithButton({
+    required this.title,
+    required this.textButton,
+    required this.onPressed,
+    this.fontSize = 28,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        MainTitle(title: title),
+        MainTitle(
+          title: title,
+          fontSize: fontSize,
+        ),
         Container(
+          padding: const EdgeInsets.symmetric(vertical: 15.0),
           child: Row(
             children: [
               TextButton(
