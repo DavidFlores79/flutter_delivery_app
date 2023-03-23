@@ -15,7 +15,7 @@ class FilterCheckFilter extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      height: 320,
+      height: (filterItems.length) * 65,
       // color: Colors.blue,
       child: Column(
         children: [

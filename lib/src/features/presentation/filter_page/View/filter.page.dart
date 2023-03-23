@@ -1,9 +1,12 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:delivery_app/src/features/presentation/filter_page/View/widgets/cuisines.filter.dart';
 import 'package:delivery_app/src/features/presentation/filter_page/View/widgets/filter_by.filter.dart';
+import 'package:delivery_app/src/features/presentation/filter_page/View/widgets/price_slider.filter.dart';
 import 'package:delivery_app/src/features/presentation/filter_page/View/widgets/sort_by.filter.dart';
 import 'package:delivery_app/src/features/presentation/widgets/widgets.dart';
+import 'package:delivery_app/src/providers/providers.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Filter extends StatefulWidget {
   static const String routeName = 'filter';
@@ -50,6 +53,15 @@ class _FilterState extends State<Filter> {
                 ),
               ),
               const FilterCheckFilter(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: MainTitle(
+                  title: 'Precios',
+                  fontSize: 18,
+                  color: grey,
+                ),
+              ),
+              PriceFilter(),
             ],
           ),
         )
@@ -66,6 +78,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final filterProvider = Provider.of<FilterProvider>(context);
+
     return AppBar(
       centerTitle: true,
       foregroundColor: black,
@@ -78,7 +92,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       leading: TextButton(
-        onPressed: () {},
+        onPressed: () {
+          filterProvider.resetCollections();
+        },
         child: const Text(
           'Reset',
           style: TextStyle(

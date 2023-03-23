@@ -15,7 +15,7 @@ class SortByCheckFilter extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      height: 320,
+      height: (sortByItems.length) * 65,
       // color: Colors.blue,
       child: Column(
         children: [

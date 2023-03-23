@@ -60,6 +60,22 @@ class FilterProvider extends ChangeNotifier {
         !filterItems[filterSelectedItem].isSelected;
     notifyListeners();
   }
+
+  resetCollections() {
+    cuisineItems = resetCollection(cuisineItems);
+    sortByItems = resetCollection(sortByItems);
+    filterItems = resetCollection(filterItems);
+    notifyListeners();
+  }
+
+  resetCollection(List<dynamic> collection) {
+    collection.map((e) {
+      e.isSelected = false;
+      return e;
+    }).toList();
+
+    return collection;
+  }
 }
 
 class CuisineButton<Widget> {
