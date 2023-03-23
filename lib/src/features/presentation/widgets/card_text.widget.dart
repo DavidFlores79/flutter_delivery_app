@@ -44,6 +44,16 @@ class CardText extends StatelessWidget {
             const SizedBox(height: 5),
             Row(
               children: [
+                // Row(
+                //   mainAxisSize: MainAxisSize.min,
+                //   children: [
+                //     Icon(Icons.star, color: orange, size: 16,),
+                //     Icon(Icons.star, color: orange, size: 16,),
+                //     Icon(Icons.star, color: orange, size: 16,),
+                //     const Icon(Icons.star, color: Colors.black, size: 16,),
+                //     const Icon(Icons.star, color: Colors.black, size: 16,),
+                //   ],
+                // ),
                 const Icon(
                   Icons.star,
                   color: orange,

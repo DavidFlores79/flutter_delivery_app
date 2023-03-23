@@ -100,7 +100,7 @@ class TopBar extends StatelessWidget {
                 color: white,
                 size: 25,
               ),
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, Filter.routeName),
             ),
           ),
         )

@@ -4,11 +4,9 @@ import 'package:flutter/material.dart';
 class MainTitle extends StatelessWidget {
   final String title;
   double fontSize;
+  Color color;
 
-  MainTitle({
-    required this.title,
-    this.fontSize = 28,
-  });
+  MainTitle({required this.title, this.fontSize = 28, this.color = black});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +16,7 @@ class MainTitle extends StatelessWidget {
       child: Text(
         title,
         style: TextStyle(
-          color: black,
+          color: color,
           fontWeight: FontWeight.bold,
           fontSize: fontSize,
         ),
