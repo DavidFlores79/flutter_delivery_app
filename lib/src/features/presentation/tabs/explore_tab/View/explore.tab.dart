@@ -33,7 +33,9 @@ class _ExploreTabState extends State<ExploreTab> {
                   MainTitleWithButton(
                     textButton: 'Mostrar Todos',
                     title: 'Colecciones',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, Collections.routeName);
+                    },
                   ),
                   const CardCollectionSlider(),
                 ],

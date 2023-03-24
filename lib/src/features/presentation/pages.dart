@@ -5,3 +5,4 @@ export 'package:delivery_app/src/features/presentation/forgot_password_page/View
 export 'package:delivery_app/src/features/presentation/login_page/View/login.page.dart';
 export 'package:delivery_app/src/features/presentation/welcome_page/View/welcome.page.dart';
 export 'package:delivery_app/src/features/presentation/search_page/View/search.page.dart';
+export 'package:delivery_app/src/features/presentation/collections_page/View/collections.page.dart';
