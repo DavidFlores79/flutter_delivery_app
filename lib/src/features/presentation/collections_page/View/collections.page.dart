@@ -1,4 +1,5 @@
 import 'package:delivery_app/src/colors/colors.dart';
+import 'package:delivery_app/src/features/presentation/pages.dart';
 import 'package:delivery_app/src/features/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -125,6 +126,7 @@ class _collectionCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
+        Navigator.pushNamed(context, CollectionDetails.routeName);
         print(label);
       },
       child: Stack(
@@ -150,40 +152,13 @@ class _collectionCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Text(
-                  label,
-                  style: const TextStyle(
-                    color: white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 15.0, // shadow blur
-                        color: black, // shadow color
-                        offset:
-                            Offset(2.0, 2.0), // how much shadow will be shown
-                      ),
-                    ],
-                  ),
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
+                WhiteTextBlackShadow(
+                  label: label,
+                  fontSize: 20,
                 ),
-                Text(
-                  '$placesQty lugares',
-                  style: const TextStyle(
-                    color: white,
-                    fontSize: 14,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 15.0, // shadow blur
-                        color: black, // shadow color
-                        offset:
-                            Offset(2.0, 2.0), // how much shadow will be shown
-                      ),
-                    ],
-                  ),
-                  textAlign: TextAlign.center,
+                WhiteTextBlackShadow(
+                  label: '$placesQty lugares',
+                  fontSize: 14,
                 ),
               ],
             ),
