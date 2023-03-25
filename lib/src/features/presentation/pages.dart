@@ -1,3 +1,4 @@
+export 'package:delivery_app/src/features/presentation/place_detail_page/View/place_details.page.dart';
 export 'package:delivery_app/src/features/presentation/collection_details_page/View/collection_detail.page.dart';
 export 'package:delivery_app/src/features/presentation/filter_page/View/filter.page.dart';
 export 'package:delivery_app/src/features/presentation/home_page/View/home.page.dart';

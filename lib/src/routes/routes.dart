@@ -7,6 +7,7 @@ final routes = <String, WidgetBuilder>{
   Filter.routeName: (context) => const Filter(),
   Collections.routeName: (context) => Collections(),
   CollectionDetails.routeName: (context) => CollectionDetails(),
+  PlaceDetails.routeName: (context) => PlaceDetails(),
   Login.routeName: (context) => Login(),
   ForgotPassword.routeName: (context) => const ForgotPassword(),
   Register.routeName: (context) => const Register(),

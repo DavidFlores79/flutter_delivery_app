@@ -13,6 +13,7 @@ class CollectionDetails extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
             expandedHeight: size.height * 0.25,
             flexibleSpace: FlexibleSpaceBar(
               background: Stack(
@@ -45,23 +46,18 @@ class CollectionDetails extends StatelessWidget {
             ),
           ),
           SliverList(
-            delegate: SliverChildListDelegate([
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20.0,
-                ),
-                child: Column(
-                  children: [
-                    MainTitle(
-                      title: '128 lugares',
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400,
-                    )
-                  ],
-                ),
+            delegate: SliverChildBuilderDelegate(
+              (context, index) => const FavouriteCard(
+                address: 'Calle 22 413 Local 4 Fracc Juan Pablo II',
+                isDeliver: true,
+                name:
+                    "Domino's Pizza añlsdk ñaldksñ aldksñ adkls adlja lskdj lasdkjla djlads",
+                reviews: '138 opiniones',
+                isFavourite: true,
               ),
-            ]),
-          )
+              childCount: 10,
+            ),
+          ),
         ],
       ),
     );

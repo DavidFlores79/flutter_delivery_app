@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 class WhiteTextBlackShadow extends StatelessWidget {
   final String label;
   final double fontSize;
+  final TextAlign textAlign;
+  final FontWeight fontWeight;
 
   const WhiteTextBlackShadow({
     required this.label,
+    this.textAlign = TextAlign.center,
     required this.fontSize,
+    this.fontWeight = FontWeight.bold,
   });
 
   @override
@@ -16,7 +20,7 @@ class WhiteTextBlackShadow extends StatelessWidget {
       label,
       style: TextStyle(
         color: white,
-        fontWeight: FontWeight.bold,
+        fontWeight: fontWeight,
         fontSize: fontSize,
         shadows: const [
           Shadow(
@@ -26,7 +30,7 @@ class WhiteTextBlackShadow extends StatelessWidget {
           ),
         ],
       ),
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       overflow: TextOverflow.ellipsis,
       maxLines: 2,
     );

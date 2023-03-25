@@ -1,28 +1,26 @@
 import 'package:delivery_app/src/colors/colors.dart';
 import 'package:flutter/material.dart';
 
-class CardText extends StatelessWidget {
+class FavouriteCardText extends StatelessWidget {
   final String name;
   final String address;
   final String reviews;
   final bool isDeliver;
 
-  const CardText({
-    Key? key,
+  const FavouriteCardText({
     required this.name,
     required this.address,
     required this.reviews,
     required this.isDeliver,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 10),
       child: ConstrainedBox(
-        constraints: const BoxConstraints(maxWidth: 250),
+        constraints: const BoxConstraints(maxWidth: 200),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               name,
@@ -44,16 +42,6 @@ class CardText extends StatelessWidget {
             const SizedBox(height: 5),
             Row(
               children: [
-                // Row(
-                //   mainAxisSize: MainAxisSize.min,
-                //   children: [
-                //     Icon(Icons.star, color: orange, size: 16,),
-                //     Icon(Icons.star, color: orange, size: 16,),
-                //     Icon(Icons.star, color: orange, size: 16,),
-                //     const Icon(Icons.star, color: Colors.black, size: 16,),
-                //     const Icon(Icons.star, color: Colors.black, size: 16,),
-                //   ],
-                // ),
                 const Icon(
                   Icons.star,
                   color: orange,
@@ -67,11 +55,17 @@ class CardText extends StatelessWidget {
                       fontWeight: FontWeight.normal,
                       color: darkGrey),
                 ),
-                const SizedBox(width: 5),
+                const SizedBox(
+                  width: 5,
+                  height: 30,
+                ),
                 Text(
                   reviews,
                   style: const TextStyle(
-                      fontSize: 13, fontWeight: FontWeight.normal, color: grey),
+                    fontSize: 13,
+                    fontWeight: FontWeight.normal,
+                    color: grey,
+                  ),
                 ),
                 const SizedBox(
                   width: 7,
@@ -79,8 +73,8 @@ class CardText extends StatelessWidget {
                 (isDeliver)
                     ? Container(
                         padding: const EdgeInsets.all(3),
-                        width: 33,
-                        height: 33,
+                        width: 30,
+                        height: 30,
                         decoration: const BoxDecoration(
                             color: darkOrange,
                             borderRadius: BorderRadius.all(Radius.circular(3))),

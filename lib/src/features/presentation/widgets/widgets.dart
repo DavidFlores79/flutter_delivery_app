@@ -1,3 +1,5 @@
+export 'package:delivery_app/src/features/presentation/widgets/favourite_card_text.widget.dart';
+export 'package:delivery_app/src/features/presentation/widgets/favourite_card.widget.dart';
 export 'package:delivery_app/src/features/presentation/widgets/white_text_black_shadow.widget.dart';
 export 'package:delivery_app/src/features/presentation/widgets/backbutton.widget.dart';
 export 'package:delivery_app/src/features/presentation/widgets/card_collection_slider.widget.dart';

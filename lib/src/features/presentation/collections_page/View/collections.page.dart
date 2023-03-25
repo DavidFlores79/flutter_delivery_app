@@ -66,7 +66,7 @@ class Collections extends StatelessWidget {
       slivers: [
         SliverAppBar(
           centerTitle: true,
-          backgroundColor: white,
+          backgroundColor: transparent,
           title: const Text(
             'Colecciones',
             style: TextStyle(
