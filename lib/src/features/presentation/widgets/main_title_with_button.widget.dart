@@ -12,7 +12,7 @@ class MainTitleWithButton extends StatelessWidget {
     required this.title,
     required this.textButton,
     required this.onPressed,
-    this.fontSize = 28,
+    this.fontSize = 22,
   });
 
   @override

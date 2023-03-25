@@ -1,3 +1,6 @@
+export 'package:delivery_app/src/features/presentation/widgets/featured_items_slider.widget.dart';
+export 'package:delivery_app/src/features/presentation/widgets/featured_items_slider_item.widget.dart';
+export 'package:delivery_app/src/features/presentation/widgets/card_collection_slider_item.widget.dart';
 export 'package:delivery_app/src/features/presentation/widgets/favourite_card_text.widget.dart';
 export 'package:delivery_app/src/features/presentation/widgets/favourite_card.widget.dart';
 export 'package:delivery_app/src/features/presentation/widgets/white_text_black_shadow.widget.dart';

@@ -1,15 +1,15 @@
 import 'package:delivery_app/src/features/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
-class CardCollectionSlider extends StatelessWidget {
-  const CardCollectionSlider({super.key});
+class FeaturedSlider extends StatelessWidget {
+  const FeaturedSlider({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       // color: Colors.blue,
       width: double.infinity,
-      height: 200,
+      height: 250,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -17,7 +17,7 @@ class CardCollectionSlider extends StatelessWidget {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 20,
-              itemBuilder: (_, index) => const CardCollectionItem(),
+              itemBuilder: (_, index) => FeaturedSliderItem(index: index),
             ),
           )
         ],

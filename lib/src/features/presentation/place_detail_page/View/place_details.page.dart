@@ -13,47 +13,81 @@ class PlaceDetails extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            backgroundColor: lighOrangeBackground,
-            expandedHeight: expandedHeight,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Stack(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: expandedHeight * 0.9,
-                    child: const Image(
-                      image: NetworkImage(
-                          'https://images.pexels.com/photos/5491000/pexels-photo-5491000.jpeg?auto=compress&cs=tinysrgb&w=640&h=427&dpr=1'),
-                      fit: BoxFit.cover,
+          _sliverAppBar(expandedHeight: expandedHeight),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Column(
+                  children: [
+                    MainTitle(
+                      title: 'Productos Destacados',
+                      fontSize: 22,
                     ),
-                  ),
-                  PlaceDetailsMainTitle(expandedHeight: expandedHeight),
-                  _placeDetailsBanner(expandedHeight: expandedHeight),
-                ],
-              ),
-            ),
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.share_outlined,
-                  size: 35,
+                    const FeaturedSlider(),
+                    MainTitle(
+                      title: 'Menú Completo',
+                      fontSize: 22,
+                    ),
+                  ],
                 ),
               ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.bookmark_outline,
-                  size: 35,
-                ),
-              ),
-            ],
-            leading: Builder(
-              builder: (context) => const backButton(color: white),
-            ),
-          ),
+            ]),
+          )
         ],
+      ),
+    );
+  }
+}
+
+class _sliverAppBar extends StatelessWidget {
+  const _sliverAppBar({
+    Key? key,
+    required this.expandedHeight,
+  }) : super(key: key);
+
+  final double expandedHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverAppBar(
+      backgroundColor: lighOrangeBackground,
+      expandedHeight: expandedHeight,
+      flexibleSpace: FlexibleSpaceBar(
+        background: Stack(
+          children: [
+            Container(
+              width: double.infinity,
+              height: expandedHeight * 0.9,
+              child: const Image(
+                image: NetworkImage(
+                    'https://images.pexels.com/photos/5491000/pexels-photo-5491000.jpeg?auto=compress&cs=tinysrgb&w=640&h=427&dpr=1'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            PlaceDetailsMainTitle(expandedHeight: expandedHeight),
+            _placeDetailsBanner(expandedHeight: expandedHeight),
+          ],
+        ),
+      ),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.share_outlined,
+            size: 35,
+          ),
+        ),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.bookmark_outline,
+            size: 35,
+          ),
+        ),
+      ],
+      leading: Builder(
+        builder: (context) => const backButton(color: white),
       ),
     );
   }

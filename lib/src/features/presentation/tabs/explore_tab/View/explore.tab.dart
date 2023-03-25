@@ -22,7 +22,10 @@ class _ExploreTabState extends State<ExploreTab> {
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 children: [
-                  MainTitle(title: 'Descubre nuevos lugares'),
+                  MainTitle(
+                    title: 'Descubre nuevos lugares',
+                    fontSize: 22,
+                  ),
                   const CardSlider(),
                   MainTitleWithButton(
                     textButton: 'Mostrar Todos',
@@ -32,7 +35,7 @@ class _ExploreTabState extends State<ExploreTab> {
                   const VerticalSlider(),
                   MainTitleWithButton(
                     textButton: 'Mostrar Todos',
-                    title: 'Colecciones',
+                    title: 'Categorías',
                     onPressed: () {
                       Navigator.pushNamed(context, Collections.routeName);
                     },
