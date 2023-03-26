@@ -11,6 +11,20 @@ class PlaceDetails extends StatelessWidget {
     final expandedHeight = size.height * 0.45;
 
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: darkOrange,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        onPressed: () {},
+        label: const Text(
+          'Añadir al carrito \$ 189.50',
+          style: TextStyle(
+            color: white,
+            fontWeight: FontWeight.w600,
+            fontSize: 17,
+          ),
+        ),
+      ),
       body: CustomScrollView(
         slivers: [
           _sliverAppBar(expandedHeight: expandedHeight),
@@ -28,6 +42,21 @@ class PlaceDetails extends StatelessWidget {
                     MainTitle(
                       title: 'Menú Completo',
                       fontSize: 22,
+                    ),
+                    _menuList(),
+                    MainTitle(
+                      title: 'Comentarios',
+                      fontSize: 22,
+                    ),
+                    _reviews(),
+                    MainTitle(
+                      title: 'Tu calificación',
+                      fontSize: 22,
+                    ),
+                    MyReview(),
+                    //Espaciador para la parte baja del modulo
+                    const SizedBox(
+                      height: 100,
                     ),
                   ],
                 ),
@@ -315,5 +344,299 @@ class _placeDetailsBanner extends StatelessWidget {
             ],
           ),
         ));
+  }
+}
+
+class _menuList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      height: (filterItems.length) * 315,
+      // color: Colors.blue,
+      child: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 5),
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: filterItems.length,
+              itemBuilder: (_, index) => listTileElements(
+                item: filterItems[index],
+                filterItems: filterItems,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class listTileElements extends StatelessWidget {
+  final FullMenuItem item;
+  final List<FullMenuItem> filterItems;
+
+  const listTileElements({required this.item, required this.filterItems});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        border: Border(
+          bottom: BorderSide(color: lightGrey),
+        ),
+      ),
+      child: Column(
+        children: [
+          ListTile(
+            onTap: () {
+              print(filterItems.indexOf(item));
+            },
+            title: MainTitle(
+              title: item.label,
+              fontSize: 16,
+              color: darkGrey,
+            ),
+            trailing: Text(item.menuItemQty.toString()),
+          ),
+          const FeaturedSlider(),
+        ],
+      ),
+    );
+  }
+}
+
+/// Para llenar el widget para el
+/// detalle de menu Lista y Modelo
+List<FullMenuItem> filterItems = [
+  FullMenuItem(label: 'Ensaladas', menuItemQty: 2),
+  FullMenuItem(label: 'Pollo', menuItemQty: 5),
+  FullMenuItem(label: 'Sopas', menuItemQty: 6),
+  FullMenuItem(label: 'Vegetales', menuItemQty: 7),
+];
+
+class FullMenuItem<Widget> {
+  String label;
+  int menuItemQty;
+
+  FullMenuItem({required this.label, required this.menuItemQty});
+}
+
+///Reviews
+
+class _reviews extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 200,
+      width: double.infinity,
+      // color: Colors.blue,
+      child: Row(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              // padding: const EdgeInsets.symmetric(vertical: 5),
+              itemCount: 10,
+              itemBuilder: (_, index) => _reviewCard(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _reviewCard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    // return Text('hola mundo');
+    return Container(
+      // color: Colors.red,
+      margin: const EdgeInsets.only(right: 10),
+      width: size.width * 0.8,
+      child: Column(
+        children: const [
+          _cardHeader(),
+          SizedBox(height: 10),
+          _reviewCardBody(),
+        ],
+      ),
+    );
+  }
+}
+
+class _cardHeader extends StatelessWidget {
+  const _cardHeader({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: const Image(
+                fit: BoxFit.cover,
+                width: 65,
+                height: 65,
+                image: NetworkImage(
+                    'https://images.pexels.com/photos/15965248/pexels-photo-15965248.jpeg?auto=compress&cs=tinysrgb&w=640&h=960&dpr=1')),
+          ),
+          ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: 180),
+            child: Container(
+              // color: Colors.white,
+              margin: const EdgeInsets.only(left: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    'David Flores Castillo',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: darkGrey,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  Text(
+                    '45 Comentarios',
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: grey,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const Spacer(),
+          _reviewStar(starQty: 2),
+        ],
+      ),
+    );
+  }
+}
+
+class _reviewCardBody extends StatelessWidget {
+  const _reviewCardBody({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text(
+      'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa quae debitis, accusamus quod quisquam suscipit dolore libero rem repellendus, quas incidunt minus, illum saepe totam praesentium repellat excepturi tempora. Officiis! adipisicing elit. Ipsa quae debitis, accusamus quod quisquam suscipit dolore',
+      style: TextStyle(
+        height: 1.4,
+        fontSize: 15,
+        color: grey,
+        fontWeight: FontWeight.bold,
+      ),
+      maxLines: 5,
+      overflow: TextOverflow.ellipsis,
+    );
+  }
+}
+
+class Review<Widget> {
+  String userAvatar;
+  String reviewBody;
+  int starsQty;
+  int reviewsQty;
+
+  Review(
+      {required this.userAvatar,
+      required this.reviewBody,
+      required this.starsQty,
+      required this.reviewsQty});
+}
+
+class MyReview extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _reviewStar(starQty: null),
+            _reviewStar(starQty: null),
+            _reviewStar(starQty: 4),
+            _reviewStar(starQty: null),
+            _reviewStar(starQty: null),
+          ],
+        ),
+        Container(
+          margin: const EdgeInsets.symmetric(vertical: 10),
+          child: MainTitle(
+            title:
+                'Nos gustaría oir más acerca de tu experiencia en este lugar. Cuéntanos cómo te fue en tu visita...',
+            color: grey,
+            fontWeight: FontWeight.normal,
+            fontSize: 17,
+          ),
+        ),
+        Row(
+          children: [
+            const Icon(
+              Icons.add,
+              color: darkOrange,
+            ),
+            MainTitle(
+              title: 'Agrega tu review',
+              color: darkOrange,
+              fontWeight: FontWeight.normal,
+              fontSize: 17,
+            ),
+          ],
+        )
+      ],
+    );
+  }
+}
+
+class _reviewStar extends StatelessWidget {
+  final starQty;
+
+  _reviewStar({required this.starQty});
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        decoration: BoxDecoration(
+            color: (starQty != null) ? darkOrange : lighOrangeBackground),
+        width: 60,
+        height: 45,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            (starQty != null)
+                ? Text(
+                    starQty.toString(),
+                    style: const TextStyle(
+                      fontSize: 17,
+                      color: white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                : const Text(''),
+            const Icon(
+              Icons.star,
+              color: white,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
