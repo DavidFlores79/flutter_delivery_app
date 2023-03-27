@@ -10,5 +10,5 @@ const red = Color.fromRGBO(216, 22, 22, 1);
 const darkGreyTransparent = Color.fromRGBO(68, 68, 74, 0.2);
 const lightGreyTransparent = Color.fromRGBO(188, 188, 194, 0.188);
 const darkGrey = Color.fromRGBO(68, 68, 74, 1);
-const lightGrey = Color.fromRGBO(188, 188, 194, 1);
+const lightGrey = Color.fromRGBO(188, 188, 194, 0.2);
 const transparent = Color.fromRGBO(0, 0, 0, 0);
